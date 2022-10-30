@@ -68,34 +68,34 @@ public class Cauldron : MonoBehaviour
 
 	private void SetPotionMixes()
 	{
-		_healingPotionMixes.Add((IngredientType.AllPlus, IngredientType.GreenMinusBlue));
-		_healingPotionMixes.Add((IngredientType.AllPlus, IngredientType.BluePlusRed));
-		_healingPotionMixes.Add((IngredientType.GreenMinusBlue, IngredientType.RedPlusGreen));
-		_healingPotionMixes.Add((IngredientType.BluePlusRed, IngredientType.RedPlusGreen));
+		_healingPotionMixes.Add((IngredientType.AllPlus, IngredientType.GreenMinus));
+		_healingPotionMixes.Add((IngredientType.AllPlus, IngredientType.BluePlus));
+		_healingPotionMixes.Add((IngredientType.GreenMinus, IngredientType.RedPlus));
+		_healingPotionMixes.Add((IngredientType.BluePlus, IngredientType.RedPlus));
 		
-		_speedPotionMixes.Add((IngredientType.AllPlus, IngredientType.BlueMinusRed));
-		_speedPotionMixes.Add((IngredientType.AllPlus, IngredientType.RedPlusGreen));
-		_speedPotionMixes.Add((IngredientType.GreenPlusBlue, IngredientType.BlueMinusRed));
-		_speedPotionMixes.Add((IngredientType.GreenPlusBlue, IngredientType.RedPlusGreen));
+		_speedPotionMixes.Add((IngredientType.AllPlus, IngredientType.BlueMinus));
+		_speedPotionMixes.Add((IngredientType.AllPlus, IngredientType.RedPlus));
+		_speedPotionMixes.Add((IngredientType.GreenPlus, IngredientType.BlueMinus));
+		_speedPotionMixes.Add((IngredientType.GreenPlus, IngredientType.RedPlus));
 
-		_wisdomPotionMixes.Add((IngredientType.AllPlus, IngredientType.GreenPlusBlue));
-		_wisdomPotionMixes.Add((IngredientType.AllPlus, IngredientType.RedMinusGreen));
-		_wisdomPotionMixes.Add((IngredientType.GreenPlusBlue, IngredientType.BluePlusRed));
-		_wisdomPotionMixes.Add((IngredientType.BluePlusRed, IngredientType.RedMinusGreen));
+		_wisdomPotionMixes.Add((IngredientType.AllPlus, IngredientType.GreenPlus));
+		_wisdomPotionMixes.Add((IngredientType.AllPlus, IngredientType.RedMinus));
+		_wisdomPotionMixes.Add((IngredientType.GreenPlus, IngredientType.BluePlus));
+		_wisdomPotionMixes.Add((IngredientType.BluePlus, IngredientType.RedMinus));
 
-		_poisonPotionMixes.Add((IngredientType.AllMinus, IngredientType.GreenPlusBlue));
-		_poisonPotionMixes.Add((IngredientType.AllMinus, IngredientType.BlueMinusRed));
-		_poisonPotionMixes.Add((IngredientType.GreenPlusBlue, IngredientType.RedMinusGreen));
-		_poisonPotionMixes.Add((IngredientType.BlueMinusRed, IngredientType.RedMinusGreen));
+		_poisonPotionMixes.Add((IngredientType.AllMinus, IngredientType.GreenPlus));
+		_poisonPotionMixes.Add((IngredientType.AllMinus, IngredientType.BlueMinus));
+		_poisonPotionMixes.Add((IngredientType.GreenPlus, IngredientType.RedMinus));
+		_poisonPotionMixes.Add((IngredientType.BlueMinus, IngredientType.RedMinus));
 
-		_paralysisPotionMixes.Add((IngredientType.AllMinus, IngredientType.BluePlusRed));
-		_paralysisPotionMixes.Add((IngredientType.AllMinus, IngredientType.RedMinusGreen));
-		_paralysisPotionMixes.Add((IngredientType.GreenMinusBlue, IngredientType.BluePlusRed));
-		_paralysisPotionMixes.Add((IngredientType.GreenMinusBlue, IngredientType.RedMinusGreen));
+		_paralysisPotionMixes.Add((IngredientType.AllMinus, IngredientType.BluePlus));
+		_paralysisPotionMixes.Add((IngredientType.AllMinus, IngredientType.RedMinus));
+		_paralysisPotionMixes.Add((IngredientType.GreenMinus, IngredientType.BluePlus));
+		_paralysisPotionMixes.Add((IngredientType.GreenMinus, IngredientType.RedMinus));
 
-		_insanityPotionMixes.Add((IngredientType.AllMinus, IngredientType.GreenMinusBlue));
-		_insanityPotionMixes.Add((IngredientType.AllMinus, IngredientType.RedPlusGreen));
-		_insanityPotionMixes.Add((IngredientType.GreenMinusBlue, IngredientType.BlueMinusRed));
-		_insanityPotionMixes.Add((IngredientType.BlueMinusRed, IngredientType.RedPlusGreen));
+		_insanityPotionMixes.Add((IngredientType.AllMinus, IngredientType.GreenMinus));
+		_insanityPotionMixes.Add((IngredientType.AllMinus, IngredientType.RedPlus));
+		_insanityPotionMixes.Add((IngredientType.GreenMinus, IngredientType.BlueMinus));
+		_insanityPotionMixes.Add((IngredientType.BlueMinus, IngredientType.RedPlus));
 	}
 }

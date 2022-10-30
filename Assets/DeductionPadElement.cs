@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -11,11 +12,14 @@ public class DeductionPadElement : MonoBehaviour
 	private GameObject myEventSystem;
 
 
-	private void Start()
+	private void Awake()
 	{
 		myEventSystem = GameObject.Find("EventSystem");
 		potionOptionsMenu = GameObject.Find("PotionOptions");
+	}
 
+	private void Start()
+	{
 		button.onClick.AddListener(ToggleSpriteAlpha);
 		button.onClick.AddListener(ClosePotionOptions);
 	}

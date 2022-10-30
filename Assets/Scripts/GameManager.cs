@@ -6,12 +6,12 @@ public class GameManager : MonoBehaviour
 {
 	[SerializeField] private List<Ingredient> ingredientPrefabs;
 	[SerializeField] private InputActionReference helpActionReference, knowledgeActionReference;
-	[SerializeField] private GameObject helpMenu, knowledgeMenu;
+	[SerializeField] private GameObject helpMenu, knowledgeMenu, potionOptions;
 
 	private readonly List<IngredientType> _ingredientTypes = new()
 	{
-		IngredientType.AllPlus, IngredientType.AllMinus, IngredientType.GreenMinusBlue, IngredientType.GreenPlusBlue,
-		IngredientType.BluePlusRed, IngredientType.BlueMinusRed, IngredientType.RedPlusGreen, IngredientType.RedMinusGreen
+		IngredientType.AllPlus, IngredientType.AllMinus, IngredientType.GreenMinus, IngredientType.GreenPlus,
+		IngredientType.BluePlus, IngredientType.BlueMinus, IngredientType.RedPlus, IngredientType.RedMinus
 	};
 	//private List<GameObject> ingredientsDeck, ingredientsDiscard;
 
@@ -22,6 +22,12 @@ public class GameManager : MonoBehaviour
 
 		helpActionReference.action.performed += arg => ToggleHelpMenu();
 		knowledgeActionReference.action.performed += arg => ToggleKnowledgeMenu();
+	}
+
+	private void Start()
+	{
+		potionOptions.SetActive(false);
+		knowledgeMenu.SetActive(false);
 	}
 
 	private void SetIngredientType()

@@ -1,7 +1,8 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class Findings : MonoBehaviour
+public class Choice : MonoBehaviour
 {
     [SerializeField] private Image sprite;
     [SerializeField] private Button button;
@@ -15,7 +16,8 @@ public class Findings : MonoBehaviour
 
     private void HandleSelection()
     {
-        optionsMenu.SetActive(true);
-        choiceManager.imageToEdit = sprite;
+        optionsMenu.SetActive(false);
+        choiceManager.resultingImage = sprite;
+        choiceManager.SwapImage();
     }
 }

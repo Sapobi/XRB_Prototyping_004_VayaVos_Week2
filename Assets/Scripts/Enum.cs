@@ -2,12 +2,12 @@ public enum IngredientType
 {
 	AllPlus = 1,
 	AllMinus = 2,
-	GreenMinusBlue = 3,
-	GreenPlusBlue = 4,
-	BluePlusRed = 5,
-	BlueMinusRed = 6,
-	RedPlusGreen = 7,
-	RedMinusGreen = 8
+	GreenMinus = 3,
+	GreenPlus = 4,
+	BluePlus = 5,
+	BlueMinus = 6,
+	RedPlus = 7,
+	RedMinus = 8
 }
 
 public enum PotionType
