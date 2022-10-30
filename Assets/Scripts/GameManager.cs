@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
-	[SerializeField] private List<Ingredient> ingredientPrefabs;
+	[SerializeField] public List<Ingredient> ingredientPrefabs;
 	[SerializeField] private InputActionReference helpActionReference, knowledgeActionReference;
 	[SerializeField] private GameObject helpMenu, knowledgeMenu, potionOptions;
 

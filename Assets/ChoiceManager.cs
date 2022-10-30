@@ -3,10 +3,17 @@ using UnityEngine.UI;
 
 public class ChoiceManager : MonoBehaviour
 {
-    public Image imageToEdit, resultingImage;
+    public Findings findingsToEdit;
+    public Image resultingImage;
+    public IngredientType resultingIngredientType;
 
     public void SwapImage()
     {
-        imageToEdit.sprite = resultingImage.sprite;
+        findingsToEdit.image.sprite = resultingImage.sprite;
+    }
+    
+    public void SwapIngredientType()
+    {
+        findingsToEdit.publishedType = resultingIngredientType;
     }
 }

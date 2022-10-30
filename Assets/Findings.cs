@@ -3,19 +3,21 @@ using UnityEngine.UI;
 
 public class Findings : MonoBehaviour
 {
-    [SerializeField] private Image sprite;
-    [SerializeField] private Button button;
-    [SerializeField] private GameObject optionsMenu;
-    [SerializeField] private ChoiceManager choiceManager;
-    
-    private void Start()
-    {
-        button.onClick.AddListener(HandleSelection);
-    }
+	[SerializeField] private Button button;
+	[SerializeField] private GameObject optionsMenu;
+	[SerializeField] private ChoiceManager choiceManager;
 
-    private void HandleSelection()
-    {
-        optionsMenu.SetActive(true);
-        choiceManager.imageToEdit = sprite;
-    }
+	public Image image;
+	public IngredientType publishedType;
+
+	private void Start()
+	{
+		button.onClick.AddListener(HandleSelection);
+	}
+
+	private void HandleSelection()
+	{
+		optionsMenu.SetActive(true);
+		choiceManager.findingsToEdit = this;
+	}
 }

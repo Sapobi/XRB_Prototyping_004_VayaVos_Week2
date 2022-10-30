@@ -1,5 +1,6 @@
 public enum IngredientType
 {
+	Unknown = 0,
 	AllPlus = 1,
 	AllMinus = 2,
 	GreenMinus = 3,
