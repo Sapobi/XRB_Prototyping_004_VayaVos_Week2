@@ -16,6 +16,7 @@ public class Cauldron : MonoBehaviour
 
 	private List<GameObject> _insertedIngredients;
 	private PotionType _createdPotionType;
+	private readonly float _brewTime = 1f;
 
 	private void Start()
 	{
@@ -26,13 +27,7 @@ public class Cauldron : MonoBehaviour
 	private void OnTriggerEnter(Collider other)
 	{
 		if (!other.GetComponent<Ingredient>()) return;
-		ActivateCauldron();
 		HandleInsertedIngredient(other.gameObject);
-	}
-
-	private void ActivateCauldron()
-	{
-		//start brewing animation
 	}
 
 	private void HandleInsertedIngredient(GameObject inserted)
@@ -40,7 +35,7 @@ public class Cauldron : MonoBehaviour
 		_insertedIngredients.Add(inserted);
 		//maybe hover them in hologram mode to show what's in the cauldron
 
-		if (_insertedIngredients.Count == 2) CreatePotion();
+		if (_insertedIngredients.Count == 2) Invoke(nameof(CreatePotion), _brewTime);
 	}
 
 	private void CreatePotion()
@@ -57,15 +52,15 @@ public class Cauldron : MonoBehaviour
 
 	private void DiscardIngredients()
 	{
-		foreach (var ingredient in _insertedIngredients)
+		for (var i = 0; i < 2; i++)
 		{
+			var ingredient = _insertedIngredients[0];
 			var prefabNr = ingredient.GetComponent<Ingredient>().prefabNr;
 			gameManager.ingredientsDiscard.Add(prefabNr);
-			
+
+			_insertedIngredients.Remove(ingredient);
 			Destroy(ingredient);
 		}
-
-		_insertedIngredients = new List<GameObject>();
 	}
 
 	private PotionType CalculatePotion((IngredientType, IngredientType) ingredients)
