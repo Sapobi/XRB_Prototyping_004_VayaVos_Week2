@@ -23,14 +23,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1885312477882813249}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: -0.258819, z: 0, w: 0.9659259}
+  m_LocalPosition: {x: -0.5, y: 5.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4786017027166862876}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -30, z: 0}
 --- !u!1 &4786017027167347260
 GameObject:
   m_ObjectHideFlags: 0
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 4786017027166862876}
   - component: {fileID: 4786017027170254396}
   - component: {fileID: 4786017027169287420}
-  - component: {fileID: 7607855333865145235}
+  - component: {fileID: 7881485687218778384}
   - component: {fileID: 1165547669794414745}
   - component: {fileID: 7455930888996001156}
   - component: {fileID: 1907649161910360752}
@@ -60,9 +60,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4786017027167347260}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1, y: 0, z: -1}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7412615412747409536}
@@ -119,8 +119,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7607855333865145235
-BoxCollider:
+--- !u!64 &7881485687218778384
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -129,9 +129,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.4570801, y: 13.066308, z: 3.28685}
-  m_Center: {x: -1.116119, y: 6.641294, z: -0.25592303}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 88464379dc857be498a08756631a5f1e, type: 3}
 --- !u!54 &1165547669794414745
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -275,4 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b5a39b4f500cbf44b81b0da6e720092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _xrGrabInteractable: {fileID: 7455930888996001156}
+  _rb: {fileID: 1165547669794414745}
+  prefabNr: 1
   type: 0

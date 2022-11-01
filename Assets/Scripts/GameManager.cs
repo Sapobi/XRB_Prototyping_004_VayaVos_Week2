@@ -13,10 +13,17 @@ public class GameManager : MonoBehaviour
 		IngredientType.AllPlus, IngredientType.AllMinus, IngredientType.GreenMinus, IngredientType.GreenPlus,
 		IngredientType.BluePlus, IngredientType.BlueMinus, IngredientType.RedPlus, IngredientType.RedMinus
 	};
-	//private List<GameObject> ingredientsDeck, ingredientsDiscard;
+
+	public List<int> ingredientsDeck = new()
+	{
+		0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7
+	};
+
+	public List<int> ingredientsDiscard = new();
 
 	private void Awake()
 	{
+		ingredientsDeck.Shuffle();
 		_ingredientTypes.Shuffle();
 		SetIngredientType();
 
@@ -46,5 +53,27 @@ public class GameManager : MonoBehaviour
 	private void ToggleKnowledgeMenu()
 	{
 		knowledgeMenu.SetActive(!knowledgeMenu.activeSelf);
+	}
+
+	public GameObject GetNextIngredient()
+	{
+		switch (ingredientsDeck.Count)
+		{
+			case 0 when ingredientsDiscard.Count == 0:
+				return null; // all ingredients in play
+			case 0:
+				RestockIngredients();
+				break;
+		}
+		var nextPrefabNr = ingredientsDeck[0];
+		ingredientsDeck.RemoveAt(0);
+		
+		return ingredientPrefabs[nextPrefabNr].gameObject;
+	}
+	private void RestockIngredients()
+	{
+		ingredientsDeck = ingredientsDiscard;
+		ingredientsDiscard = new List<int>();
+		ingredientsDeck.Shuffle();
 	}
 }

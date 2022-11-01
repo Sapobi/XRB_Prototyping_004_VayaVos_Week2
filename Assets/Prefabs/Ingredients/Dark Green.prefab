@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 527625867835640285}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 4.6, z: 0.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 5517016872478140691}
   - component: {fileID: 5517016872476813619}
   - component: {fileID: 5517016872475716595}
-  - component: {fileID: 8867840247303878898}
+  - component: {fileID: 802896446312324357}
   - component: {fileID: 620682319079429382}
   - component: {fileID: 2871421860902324441}
   - component: {fileID: 8320592547505337818}
@@ -60,9 +60,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5517016872477979955}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1, y: 0, z: -1}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalScale: {x: 0.013, y: 0.013, z: 0.013}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6637905908716295613}
@@ -119,8 +119,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8867840247303878898
-BoxCollider:
+--- !u!64 &802896446312324357
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -129,9 +129,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 8.75739, y: 10.541059, z: 8.61321}
-  m_Center: {x: 0.3794011, y: 4.981258, z: 1.3281411}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 36fa5349f8411ba418f5f8a20d4e9d58, type: 3}
 --- !u!54 &620682319079429382
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -275,4 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b5a39b4f500cbf44b81b0da6e720092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _xrGrabInteractable: {fileID: 2871421860902324441}
+  _rb: {fileID: 620682319079429382}
+  prefabNr: 2
   type: 0

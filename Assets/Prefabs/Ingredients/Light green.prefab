@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277826814366374610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.9, y: 6.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 3719803664490699732}
   - component: {fileID: 3719803664489929716}
   - component: {fileID: 3719803664488929588}
-  - component: {fileID: 3746505117704190860}
+  - component: {fileID: 3073658261503906046}
   - component: {fileID: 1324721249942227330}
   - component: {fileID: 620397342414515740}
   - component: {fileID: 1045953168582593366}
@@ -62,7 +62,7 @@ Transform:
   m_GameObject: {fileID: 3719803664490924020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalScale: {x: 0.011, y: 0.011, z: 0.011}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4256634228495889288}
@@ -119,8 +119,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3746505117704190860
-BoxCollider:
+--- !u!64 &3073658261503906046
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -129,9 +129,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 7.784215, y: 25.124357, z: 11.055103}
-  m_Center: {x: -3.0454173, y: 12.27402, z: -0.036161423}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 337a57755ab26f847ad43e0d87473592, type: 3}
 --- !u!54 &1324721249942227330
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -275,4 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b5a39b4f500cbf44b81b0da6e720092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _xrGrabInteractable: {fileID: 620397342414515740}
+  _rb: {fileID: 1324721249942227330}
+  prefabNr: 4
   type: 0

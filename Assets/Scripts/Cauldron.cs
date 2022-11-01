@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Cauldron : MonoBehaviour
 {
+	[SerializeField] private GameManager gameManager;
 	[SerializeField] private GameObject[] mixedPotionPrefabs;
 	[SerializeField] private Transform mixedPotionSpawnTransform;
 
@@ -13,8 +14,8 @@ public class Cauldron : MonoBehaviour
 	private readonly List<(IngredientType, IngredientType)> _paralysisPotionMixes = new();
 	private readonly List<(IngredientType, IngredientType)> _insanityPotionMixes = new();
 
-	[SerializeField] private List<GameObject> _insertedIngredients;
-	[SerializeField] private PotionType _createdPotionType;
+	private List<GameObject> _insertedIngredients;
+	private PotionType _createdPotionType;
 
 	private void Start()
 	{
@@ -47,10 +48,22 @@ public class Cauldron : MonoBehaviour
 		var ingredientsList = new List<IngredientType> { _insertedIngredients[0].GetComponent<Ingredient>().type, _insertedIngredients[1].GetComponent<Ingredient>().type };
 		ingredientsList.Sort();
 		var ingredients = (ingredientsList[0], ingredientsList[1]);
-		
-		_createdPotionType = CalculatePotion(ingredients);
 
+		_createdPotionType = CalculatePotion(ingredients);
 		Instantiate(mixedPotionPrefabs[(int)_createdPotionType], mixedPotionSpawnTransform.position, mixedPotionSpawnTransform.rotation);
+
+		DiscardIngredients();
+	}
+
+	private void DiscardIngredients()
+	{
+		foreach (var ingredient in _insertedIngredients)
+		{
+			var prefabNr = ingredient.GetComponent<Ingredient>().prefabNr;
+			gameManager.ingredientsDiscard.Add(prefabNr);
+			
+			Destroy(ingredient);
+		}
 
 		_insertedIngredients = new List<GameObject>();
 	}
@@ -72,7 +85,7 @@ public class Cauldron : MonoBehaviour
 		_healingPotionMixes.Add((IngredientType.AllPlus, IngredientType.BluePlus));
 		_healingPotionMixes.Add((IngredientType.GreenMinus, IngredientType.RedPlus));
 		_healingPotionMixes.Add((IngredientType.BluePlus, IngredientType.RedPlus));
-		
+
 		_speedPotionMixes.Add((IngredientType.AllPlus, IngredientType.BlueMinus));
 		_speedPotionMixes.Add((IngredientType.AllPlus, IngredientType.RedPlus));
 		_speedPotionMixes.Add((IngredientType.GreenPlus, IngredientType.BlueMinus));
