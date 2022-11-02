@@ -6,6 +6,7 @@ public class Cauldron : MonoBehaviour
 	[SerializeField] private GameManager gameManager;
 	[SerializeField] private GameObject[] mixedPotionPrefabs;
 	[SerializeField] private Transform mixedPotionSpawnTransform;
+	[SerializeField] private AudioSource ingredientInsertedAudio, potionCreatedAudio;
 
 	private readonly List<(IngredientType, IngredientType)> _healingPotionMixes = new();
 	private readonly List<(IngredientType, IngredientType)> _speedPotionMixes = new();
@@ -28,6 +29,7 @@ public class Cauldron : MonoBehaviour
 	{
 		if (!other.GetComponent<Ingredient>()) return;
 		HandleInsertedIngredient(other.gameObject);
+		ingredientInsertedAudio.Play();
 	}
 
 	private void HandleInsertedIngredient(GameObject inserted)
@@ -46,7 +48,7 @@ public class Cauldron : MonoBehaviour
 
 		_createdPotionType = CalculatePotion(ingredients);
 		Instantiate(mixedPotionPrefabs[(int)_createdPotionType], mixedPotionSpawnTransform.position, mixedPotionSpawnTransform.rotation);
-
+		potionCreatedAudio.Play();
 		DiscardIngredients();
 	}
 

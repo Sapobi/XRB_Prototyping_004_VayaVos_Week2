@@ -9,6 +9,7 @@ public class ResultPanel : MonoBehaviour
 	[SerializeField] private List<Findings> userInput;
 	[SerializeField] private Image resultImage;
 	[SerializeField] private Sprite success, failed;
+	[SerializeField] private AudioSource successSound, failedSound;
 
 	private void OnEnable()
 	{
@@ -23,9 +24,11 @@ public class ResultPanel : MonoBehaviour
 			Debug.Log("Game: " + gameManager.ingredientPrefabs[i].type + " Publish: " + userInput[i].publishedType);
 			if (gameManager.ingredientPrefabs[i].type == userInput[i].publishedType) continue;
 			resultImage.sprite = failed;
+			failedSound.Play();
 			return;
 		}
 
 		resultImage.sprite = success;
+		successSound.Play();
 	}
 }
