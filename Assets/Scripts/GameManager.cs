@@ -1,12 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
 	[SerializeField] public List<Ingredient> ingredientPrefabs;
-	[SerializeField] private InputActionReference helpActionReference, knowledgeActionReference;
-	[SerializeField] private GameObject helpMenu, knowledgeMenu, potionOptions;
 
 	private readonly List<IngredientType> _ingredientTypes = new()
 	{
@@ -26,15 +23,6 @@ public class GameManager : MonoBehaviour
 		ingredientsDeck.Shuffle();
 		_ingredientTypes.Shuffle();
 		SetIngredientType();
-
-		helpActionReference.action.performed += arg => ToggleHelpMenu();
-		knowledgeActionReference.action.performed += arg => ToggleKnowledgeMenu();
-	}
-
-	private void Start()
-	{
-		potionOptions.SetActive(false);
-		knowledgeMenu.SetActive(false);
 	}
 
 	private void SetIngredientType()
@@ -43,16 +31,6 @@ public class GameManager : MonoBehaviour
 		{
 			ingredientPrefabs[i].type = _ingredientTypes[i];
 		}
-	}
-
-	private void ToggleHelpMenu()
-	{
-		helpMenu.SetActive(!helpMenu.activeSelf);
-	}
-
-	private void ToggleKnowledgeMenu()
-	{
-		knowledgeMenu.SetActive(!knowledgeMenu.activeSelf);
 	}
 
 	public GameObject GetNextIngredient()
@@ -65,11 +43,13 @@ public class GameManager : MonoBehaviour
 				RestockIngredients();
 				break;
 		}
+
 		var nextPrefabNr = ingredientsDeck[0];
 		ingredientsDeck.RemoveAt(0);
-		
+
 		return ingredientPrefabs[nextPrefabNr].gameObject;
 	}
+
 	private void RestockIngredients()
 	{
 		ingredientsDeck = ingredientsDiscard;

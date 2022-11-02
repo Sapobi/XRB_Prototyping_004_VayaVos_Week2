@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -7,10 +6,9 @@ public class DeductionPadElement : MonoBehaviour
 {
 	[SerializeField] private Image sprite;
 	[SerializeField] private Button button;
-
-	private GameObject potionOptionsMenu;
+	
+	public GameObject potionOptionsMenu;
 	private GameObject myEventSystem;
-
 
 	private void Awake()
 	{
@@ -28,6 +26,7 @@ public class DeductionPadElement : MonoBehaviour
 	{
 		var a = (sprite.color.a + 1) % 2;
 		var color = new Color(1, 1, 1, a);
+		Debug.Log(color);
 
 		sprite.color = color;
 		myEventSystem.GetComponent<EventSystem>().SetSelectedGameObject(null);
